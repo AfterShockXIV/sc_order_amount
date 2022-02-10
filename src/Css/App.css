@@ -1,0 +1,142 @@
+img{
+    height: 50px;
+    width: 50px;
+    margin: AUTO;
+  }
+  td{
+    font-size: 13px;
+    text-align: right;
+  }
+  th{
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+  }
+  tr:nth-child(even){
+    background-color: rgb(196, 216, 241);   
+  }
+  .IMG{
+    width: 100px;
+    height: 100px;
+  }
+  @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
+  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+  body{
+  font-size: 10px;
+  font-family: 'Prompt', sans-serif;
+  background: #F6FAFB;
+  }
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #292929;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+  }
+  .nav li {
+    cursor: pointer;
+    margin-bottom: 2px;
+    width: 80px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    font-family: 'Prompt', sans-serif;
+    color: #ffffff;
+  }
+  .nav li div,
+  .nav li i {
+    position: absolute;
+    text-align: center;
+    animation-duration: 0.34s;
+  }
+  .nav li div {
+    margin-left: 80px;
+    text-align: center;
+    width: 160px;
+  }
+  .nav li i {
+    line-height: 60px;
+    width: 80px;
+    z-index: 9;
+    background: #292929;
+  }
+  .nav li div {
+    display: none;
+    z-index: 1;
+    border-radius: 20px;
+    background: #f37121;
+    border-radius: 0px 25px 25px 0px  ;
+  }
+  
+  .nav li:hover > div {
+    display: inline-block;
+  }
+  .nav li:hover i {
+    border-radius: 0px 0px 0px 0px;
+    background: #f37121;
+    
+  }
+  
+  .hero {
+    height: 50vh;
+    text-align: center;
+    padding-top: 22%;
+  
+    font-size: 28px;
+  }
+  .credits {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+  }
+  .credits a {
+    margin: 10px;
+  }
+  .Color_nav_font{
+      color: white;
+      text-decoration: none;
+  }
+ .img-size{
+   width: 100px;
+   height: 100px;
+ }
+ .nav-l{
+   padding-left: 10px;
+   
+   width: 60px;
+   height: 40px;
+ }
+ .nav-f{
+   font-size: 12px;
+}
+
+.nav_top{ 
+  position: sticky; top: 0;
+ 
+}
+.btn_po{
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  text-decoration: none;
+}
+.project-modal-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.text-head{
+    font-weight: bold;
+   }
+   .shadow {
+    background-color: rgba(255, 255, 255, 0.685);box-shadow: 0 30px 50px rgba(0,0,0,.2); 
+    border-radius: 10px ;
+  }

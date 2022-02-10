@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+    body {
+        font-size: 13px;
+        font-family: 'Prompt', sans-serif;
+    }
+</style>
+<style>
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .signature-pad {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 200px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(0, 0, 0);
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+
+<body>
+
+
+
+    <div style="display: flex;justify-content: center;padding-top: 50px;">
+        <table>
+            <tr>
+                <td style="width: 100px;"><span>วันที่</span></td>
+                <td style="width: 100px;"><span>ชื่อบริษัท</span></td>
+                <td style="width: 100px;"><span>ราคา</span></td>
+
+            </tr>
+            <tr>
+                <td><span style="color: red;">
+                        <%= data_order.date_added %>
+                    </span></td>
+                <td><span style="color: red;">
+                        <%= data_order.company_name %>
+                    </span></td>
+                <td><span style="color: red;">
+                        <%= data_order.price %>
+                    </span></td>
+            </tr>
+        </table>
+    </div>
+    <div style="display: flex;justify-content: center;padding-top: 50px;">
+        <table class="text-center" style="width: 40%;">
+            <tr>
+
+            </tr>
+            <tr>
+            <tr>
+                <td>ลายเซ็นผู้ทำการบันทึก</td>
+            </tr>
+
+            <td>
+                <div class="wrapper">
+                    <canvas id="signature-pad" name="canvas" class="signature-pad"></canvas>
+                </div>
+                <br>
+
+                <form action="/post_sig_price" method="post">
+                    <button type="button" style="border-radius: 20px;" class="btn btn-warning" id="clear">Clear</button>
+                    <input hidden type="text" value="<%= data_order.order_id %>" name="order_id">
+                    <input hidden type="text" value="<%= data_order.company_name %>" name="company_name">
+                    <input hidden type="text" value="<%= data_order.company_id %>" name="company_id">
+                    <button type="submit" style="border-radius: 20px;" class="btn btn-success"
+                        id="save-jpeg">บันทึก</button>
+                    <input hidden type="text" id="demo" name="sig_price" value="">
+                </form>
+            </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var canvas = document.getElementById('signature-pad');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg').addEventListener('click', function () {
+        if (signaturePad.isEmpty()) {
+            document.getElementById('demo').value = "Nosig";
+        } else {
+            var canvas = document.getElementById("signature-pad");
+            var dataURL = canvas.toDataURL();
+
+            document.getElementById('demo').value = dataURL;
+            x.innerText = dataURL;
+        }
+
+
+    });
+
+    document.getElementById('clear').addEventListener('click', function () {
+        signaturePad.clear();
+
+    });
+
+
+
+</script>
