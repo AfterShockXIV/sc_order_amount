@@ -1,7 +1,7 @@
 import "../../Css/Order_all.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import server from "../configs/portserver";
+import server from "../../configs/portserver";
 function Company_filter_date(props) {
 
     const [order_all, setOrder_all] = useState([]);

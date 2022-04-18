@@ -2,7 +2,7 @@ import "../../Css/Order_all.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Modal } from 'react-bootstrap';
-import server from "../configs/portserver";
+import server from "../../configs/portserver";
 function Company_target(props) {
 
     const [order_all, setOrder_all] = useState([]);
