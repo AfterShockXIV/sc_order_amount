@@ -2,15 +2,15 @@ import "./../Css/Order_all.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Modal } from 'react-bootstrap';
-import { confirmAlert } from "react-confirm-alert";
+import server from "../configs/portserver";
 
 function Add() {
     
     const [company, setCompany] = useState([]);
-    const server = "http://192.168.30.226:3011";
+ 
     const [lgShow, setLgShow] = useState(false);
     const [upShow, setupShow] = useState(false);
-    const [c_delete, setDelete] = useState([]);
+
     const [name, setName] = useState("");
     const [showid_code, setShowid_code] = useState("");
     const [id, setID] = useState("");

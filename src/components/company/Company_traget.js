@@ -2,6 +2,7 @@ import "../../Css/Order_all.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Modal } from 'react-bootstrap';
+import server from "../configs/portserver";
 function Company_target(props) {
 
     const [order_all, setOrder_all] = useState([]);
@@ -16,7 +17,6 @@ function Company_target(props) {
     const [price, setPrice] = useState("");
 
     const [count, setCount] = useState(0);
-    const server = "http://192.168.30.226:3011";
     useEffect(() => {
 
         async function Orderall_td() {

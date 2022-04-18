@@ -1,13 +1,12 @@
 
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Axios from "axios";
-import { Trash } from 'react-bootstrap-icons';
-
+import server from "../configs/portserver";
 const Add = () => {
     const [company, setCompany] = useState([]);
     const [id_code, setID_code] = useState("");
     const [company_name, setCompany_name] = useState("");
-    const server = "http://192.168.30.226:3011";
+   
     const [show, setShow] = useState(true);
     const addCompany_name = () => {
         Axios.post(server + "/Add_company", {

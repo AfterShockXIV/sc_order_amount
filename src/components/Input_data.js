@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import { Trash } from 'react-bootstrap-icons';
+import server from "../configs/portserver";
 
 const Add = () => {
     const [company_id, setCompany_id] = useState("");
@@ -9,7 +9,6 @@ const Add = () => {
     const [order, setOrder] = useState([]);
     const [date, setDate] = useState("");
     const [company_name, setCompany_name] = useState([]);
-    const server = "http://192.168.30.226:3011";
 
     useEffect(() => {
         Axios.get(server + "/select_company")

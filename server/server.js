@@ -24,7 +24,7 @@ const port = 3011;
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Venine@2020',
+  password: '123456',
   database: 'sc_order_amount'
 });
 db.connect((err) => {

@@ -1,13 +1,13 @@
 import "./../Css/Order_all.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import Table from 'react-bootstrap/Table'
+import server from "../configs/portserver";
 const Add = () => {
   const [order_all, setOrder_all] = useState([]);
   const [company, setCompany] = useState([]);
   const [sum_row, setSum_row] = useState([]);
   const [sum_all, setSum_all] = useState([]);
-  const server = "http://192.168.30.226:3011";
+ 
   const [date_start, setDate_start] = useState("");
   const [date_end, setDate_end] = useState("");
   useEffect(() => {
